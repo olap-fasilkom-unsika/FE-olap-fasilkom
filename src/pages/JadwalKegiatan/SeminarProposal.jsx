@@ -2,8 +2,6 @@ import React, { Component } from "react";
 import ProgressHeightWidth from "../../js/ProgressHeightWidth";
 import ModuleDataTable from "../../js/ModuleDataTable";
 import { Data } from "./data";
-import { NavLink } from "react-router-dom";
-import CompGallery from "../Components/CompGallery";
 
 export class SeminarProposal extends Component {
   componentDidMount() {
