@@ -6,3 +6,8 @@
  */
 
 /*# sourceMappingURL=custom.css.map */
+
+.fix-textarea {
+  height: 500px !important;
+  color: aqua;
+}

@@ -9,10 +9,10 @@ export const ChartGeneral = () => {
     var myChart = new Chart(statistics_chart, {
         type: 'line',
         data: {
-            labels: ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"],
+            labels: ['2016', '2017', '2018', '2019', '2020'],
             datasets: [{
                 label: 'Statistics',
-                data: [640, 387, 530, 302, 430, 270, 488],
+                data: [771, 787, 766, 802, 794],
                 borderWidth: 5,
                 borderColor: '#6777ef',
                 backgroundColor: 'transparent',
@@ -32,7 +32,7 @@ export const ChartGeneral = () => {
                         drawBorder: false,
                     },
                     ticks: {
-                        stepSize: 150
+                        stepSize: 10
                     }
                 }],
                 xAxes: [{

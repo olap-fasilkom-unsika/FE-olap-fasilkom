@@ -4,10 +4,10 @@ export default function Footer() {
   return (
     <footer className="main-footer">
       <div className="footer-left">
-        Copyright & copy; 2020 <div className="bullet" /> Design By{" "}
-        <a href="https://nauval.in/"> Muhamad Nauval Azhar </a>{" "}
+        Copyright &copy; 2021 <div className="bullet" /> Made By{" "}
+        <a href="https://nauval.in/"> Adam Mukti </a>{" "}
       </div>{" "}
-      <div className="footer-right"> 2.3 .0 </div>{" "}
+      <div className="footer-right"> 0.0.1 </div>{" "}
     </footer>
   );
 }

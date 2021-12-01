@@ -17,13 +17,11 @@ export class UserDropdown extends Component {
             className="rounded-circle mr-1"
           />
           <div className="d-sm-none d-lg-inline-block">
-            Hi, {userDetail.userName}
+            Hi, {userDetail.username}
           </div>
         </a>
         <div className="dropdown-menu dropdown-menu-right">
-          <div className="dropdown-title">
-            Logged in {userDetail.logTime} ago
-          </div>
+          <div className="dropdown-title">Manage Account</div>
 
           {userDetail.datas.map((data, idata) => {
             return (
