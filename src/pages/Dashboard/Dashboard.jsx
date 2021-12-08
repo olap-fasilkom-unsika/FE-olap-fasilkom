@@ -1,4 +1,6 @@
 import React, { Component } from "react";
+import CardComponent from "../../components/CardComponent/CardComponent";
+import CardStatistic from "./CardStatistic";
 import { ChartGeneral } from "./GraphGeneralDashboard/ChartGeneral";
 
 export class Dashboard extends Component {
@@ -13,119 +15,71 @@ export class Dashboard extends Component {
             <h1>Dashboard</h1>
           </div>
           <div className="row">
-            <div className="col-lg-3 col-md-6 col-sm-6 col-12">
-              <div className="card card-statistic-1">
-                <div className="card-icon bg-primary">
-                  <i className="far fa-user"></i>
-                </div>
-                <div className="card-wrap">
-                  <div className="card-header">
-                    <h4>Mahasiswa</h4>
-                  </div>
-                  <div className="card-body">4238</div>
-                </div>
-              </div>
-            </div>
-            <div className="col-lg-3 col-md-6 col-sm-6 col-12">
-              <div className="card card-statistic-1">
-                <div className="card-icon bg-danger">
-                  <i className="far fa-newspaper"></i>
-                </div>
-                <div className="card-wrap">
-                  <div className="card-header">
-                    <h4>News</h4>
-                  </div>
-                  <div className="card-body">42</div>
-                </div>
-              </div>
-            </div>
-            <div className="col-lg-3 col-md-6 col-sm-6 col-12">
-              <div className="card card-statistic-1">
-                <div className="card-icon bg-warning">
-                  <i className="far fa-file"></i>
-                </div>
-                <div className="card-wrap">
-                  <div className="card-header">
-                    <h4>Reports</h4>
-                  </div>
-                  <div className="card-body">1,201</div>
-                </div>
-              </div>
-            </div>
-            <div className="col-lg-3 col-md-6 col-sm-6 col-12">
-              <div className="card card-statistic-1">
-                <div className="card-icon bg-success">
-                  <i className="fas fa-circle"></i>
-                </div>
-                <div className="card-wrap">
-                  <div className="card-header">
-                    <h4>Online Users</h4>
-                  </div>
-                  <div className="card-body">47</div>
-                </div>
-              </div>
-            </div>
+            <CardStatistic />
           </div>
           <div className="row">
             <div className="col-lg-8 col-md-12 col-12 col-sm-12">
-              <div className="card">
-                <div className="card-header">
-                  <h4>Data Kelulusan</h4>
-                </div>
-                <div className="card-body">
-                  <canvas id="myChart" height="182"></canvas>
-                </div>
-              </div>
+              <CardComponent
+                title="Data Kelulusan"
+                body={
+                  <>
+                    <canvas id="myChart" height="182"></canvas>
+                  </>
+                }
+              />
             </div>
             <div className="col-lg-4 col-md-12 col-12 col-sm-12">
-              <div className="card">
-                <div className="card-header">
-                  <h4>Events</h4>
-                </div>
-                <div className="card-body">
-                  <ul className="list-unstyled list-unstyled-border">
-                    <li className="media">
-                      <div className="media-body">
-                        <div className="float-right">07/11/2021</div>
-                        <div className="media-title">
-                          Jadwal Seminar Proposal
+              <CardComponent
+                title="Events"
+                body={
+                  <>
+                    <ul className="list-unstyled list-unstyled-border">
+                      <li className="media">
+                        <div className="media-body">
+                          <div className="float-right">07/11/2021</div>
+                          <div className="media-title">
+                            Jadwal Seminar Proposal
+                          </div>
+                          <span className="text-small text-muted">
+                            Gelombang 2
+                          </span>
                         </div>
-                        <span className="text-small text-muted">
-                          Gelombang 2
-                        </span>
-                      </div>
-                    </li>
-                    <li className="media">
-                      <div className="media-body">
-                        <div className="float-right">16/11/2021</div>
-                        <div className="media-title">Jadwal Seminar Hasil</div>
-                        <span className="text-small text-muted">
-                          Gelombang 2
-                        </span>
-                      </div>
-                    </li>
-                    <li className="media">
-                      <div className="media-body">
-                        <div className="float-right">23/11/2021</div>
-                        <div className="media-title">Jadwal Sidang Skripsi</div>
-                        <span className="text-small text-muted">
-                          Gelombang 2
-                        </span>
-                      </div>
-                    </li>
-                  </ul>
-                  <div className="text-center pt-1 pb-1">
-                    <a href="#" className="btn btn-primary btn-lg btn-round">
-                      View All
-                    </a>
-                  </div>
-                </div>
-              </div>
+                      </li>
+                      <li className="media">
+                        <div className="media-body">
+                          <div className="float-right">16/11/2021</div>
+                          <div className="media-title">
+                            Jadwal Seminar Hasil
+                          </div>
+                          <span className="text-small text-muted">
+                            Gelombang 2
+                          </span>
+                        </div>
+                      </li>
+                      <li className="media">
+                        <div className="media-body">
+                          <div className="float-right">23/11/2021</div>
+                          <div className="media-title">
+                            Jadwal Sidang Skripsi
+                          </div>
+                          <span className="text-small text-muted">
+                            Gelombang 2
+                          </span>
+                        </div>
+                      </li>
+                    </ul>
+                    <div className="text-center pt-1 pb-1">
+                      <a href="#" className="btn btn-primary btn-lg btn-round">
+                        View All
+                      </a>
+                    </div>
+                  </>
+                }
+              />
             </div>
           </div>
-          <div className="row"></div>
           <div className="row">
-            <div className="col-lg-6 col-md-6 col-12">
+            {/* <div className="col-lg-6 col-md-6 col-12">
               <div className="card">
                 <div className="card-header">
                   <h4>Topik terfavorit</h4>
@@ -169,7 +123,9 @@ export class Dashboard extends Component {
                     <div className="text-small float-right font-weight-bold text-muted">
                       1,521
                     </div>
-                    <div className="font-weight-bold mb-1">Sistem Informasi</div>
+                    <div className="font-weight-bold mb-1">
+                      Sistem Informasi
+                    </div>
                     <div className="progress" data-height="3">
                       <div
                         className="progress-bar"
@@ -186,7 +142,9 @@ export class Dashboard extends Component {
                     <div className="text-small float-right font-weight-bold text-muted">
                       884
                     </div>
-                    <div className="font-weight-bold mb-1">Machine Learning</div>
+                    <div className="font-weight-bold mb-1">
+                      Machine Learning
+                    </div>
                     <div className="progress" data-height="3">
                       <div
                         className="progress-bar"
@@ -220,7 +178,9 @@ export class Dashboard extends Component {
                     <div className="text-small float-right font-weight-bold text-muted">
                       418
                     </div>
-                    <div className="font-weight-bold mb-1">Android Development</div>
+                    <div className="font-weight-bold mb-1">
+                      Android Development
+                    </div>
                     <div className="progress" data-height="3">
                       <div
                         className="progress-bar"
@@ -234,8 +194,8 @@ export class Dashboard extends Component {
                   </div>
                 </div>
               </div>
-            </div>
-            <div className="col-lg-6 col-md-6 col-12">
+            </div> */}
+            {/* <div className="col-lg-6 col-md-6 col-12">
               <div className="card">
                 <div className="card-header">
                   <h4 className="d-inline">Tasks</h4>
@@ -372,7 +332,7 @@ export class Dashboard extends Component {
                   </ul>
                 </div>
               </div>
-            </div>
+            </div> */}
           </div>
         </section>
       </div>
