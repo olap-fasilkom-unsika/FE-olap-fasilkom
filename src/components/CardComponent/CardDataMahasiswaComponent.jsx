@@ -1,45 +1,67 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import StatusMahasiswaComponenet from "../StatusComponent/StatusMahasiswaComponenet";
 import CardComponent from "./CardComponent";
 import DetailInformationComponent from "../DetailInformationComponent";
 import { useHistory } from "react-router-dom";
+import Error404 from "../../pages/Errors/404";
+import { getMahasiswaById } from "../../api/mahasiswaService";
 
-const CardDataMahasiswaComponent = ({ mhs }) => {
+const CardDataMahasiswaComponent = ({ id }) => {
   const history = useHistory();
-  const ok = () => {
-    if (mhs === []) {
-      return <div>wkwkw</div>;
-    }
+
+  const [mahasiswa, setMahasiswa] = useState([]);
+  const [loading, setLoading] = useState(false);
+
+  useEffect(() => {
+    loadData();
+  }, []);
+
+  const loadData = () => {
+    setLoading(true);
+    getMahasiswaById(id)
+      .then((response) => {
+        setMahasiswa(response.data.data);
+      })
+      .catch((err) => {
+        console.log(err);
+      })
+      .finally(() => {
+        setLoading(false);
+      });
   };
-  useEffect(() => {}, []);
-  console.log(mhs);
+  if (typeof id === 'undefined') {
+    history.push("/mahasiswa");
+  }
+
+  if (loading) {
+    return <div></div>
+  }
   return (
     <CardComponent
       title="Data Mahasiswa"
       body={
         <>
-          {ok()}
           <div className="row">
             <div className="col-lg-6 col-md-6">
-              <DetailInformationComponent title="Nama" value={mhs.nama} />
-              <DetailInformationComponent title="NPM" value={mhs.nim} />
-              <DetailInformationComponent title="No. Hp" value={mhs.noHp} />
+              <DetailInformationComponent title="Nama" value={mahasiswa.nama} />
+              <DetailInformationComponent title="NPM" value={mahasiswa.nim} />
+              <DetailInformationComponent title="No. Hp" value={mahasiswa.noHp} />
               <DetailInformationComponent
                 title="Email"
-                value={mhs.user?.email}
+                value={mahasiswa.user?.email}
               />
             </div>
             <div className="col-lg-6 col-md-6">
               <DetailInformationComponent
                 title="Jenis Kelamin"
-                value={mhs.user?.gender}
+                value={mahasiswa.user?.gender}
               />
               <DetailInformationComponent title="Tahun Masuk" value="2018" />
               <DetailInformationComponent
                 title="Program Studi"
-                value={mhs.programStudi?.name}
+                value={mahasiswa.programStudi?.name}
               />
-              <StatusMahasiswaComponenet status={mhs?.status?.id} />
+              <StatusMahasiswaComponenet status={mahasiswa?.statusMahasiswa} />
             </div>
           </div>
         </>

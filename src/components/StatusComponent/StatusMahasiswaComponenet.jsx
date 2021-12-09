@@ -7,25 +7,17 @@ const StatusMahasiswaComponenet = ({ status }) => {
     });
   }, []);
 
-  const statusMahasiswa = () => {
-    if (status === "A") {
-      return (
-        <div
-          className="badge badge-success"
-          data-toggle="popover"
-          data-trigger="hover"
-          data-content="Sudah Disetujui"
-        >
-          A
-        </div>
-      );
-    }
-  };
-
   return (
     <>
       <h6 class="card-title">Status Mahasiswa</h6>
-      {statusMahasiswa()}
+      <div
+        className="badge badge-success"
+        data-toggle="popover"
+        data-trigger="hover"
+        data-content={status?.name}
+      >
+        {status?.id}
+      </div>
     </>
   );
 };
