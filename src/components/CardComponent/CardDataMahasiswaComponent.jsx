@@ -1,16 +1,24 @@
-import React from "react";
+import React, { useEffect } from "react";
 import StatusMahasiswaComponenet from "../StatusComponent/StatusMahasiswaComponenet";
 import CardComponent from "./CardComponent";
 import DetailInformationComponent from "../DetailInformationComponent";
+import { useHistory } from "react-router-dom";
 
-const CardDataMahasiswaComponent = ({mhs}) => {
-  const prodi = mhs.programStudi;
-  console.log(mhs?.programStudi?.name);
+const CardDataMahasiswaComponent = ({ mhs }) => {
+  const history = useHistory();
+  const ok = () => {
+    if (mhs === []) {
+      return <div>wkwkw</div>;
+    }
+  };
+  useEffect(() => {}, []);
+  console.log(mhs);
   return (
     <CardComponent
       title="Data Mahasiswa"
       body={
         <>
+          {ok()}
           <div className="row">
             <div className="col-lg-6 col-md-6">
               <DetailInformationComponent title="Nama" value={mhs.nama} />
@@ -31,7 +39,7 @@ const CardDataMahasiswaComponent = ({mhs}) => {
                 title="Program Studi"
                 value={mhs.programStudi?.name}
               />
-              <StatusMahasiswaComponenet status="A" />
+              <StatusMahasiswaComponenet status={mhs?.status?.id} />
             </div>
           </div>
         </>

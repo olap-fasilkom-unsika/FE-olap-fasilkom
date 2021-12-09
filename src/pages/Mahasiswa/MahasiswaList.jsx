@@ -14,19 +14,18 @@ const MahasiswaList = () => {
 
   const loadData = () => {
     setLoading(true);
-    ModuleDataTable();
-    ProgressHeightWidth();
     getListMahasiswa()
       .then((response) => {
-        setMahasiswa(response.data.data);
+        setMahasiswa(response.data.data.mahasiswa);
       })
       .catch((err) => {
         console.log(err);
       })
       .finally(() => {
         setLoading(false);
+        ModuleDataTable();
       });
-  };  
+  };
 
   if (loading) {
     return <div>Loading</div>;
