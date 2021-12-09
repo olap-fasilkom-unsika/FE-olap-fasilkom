@@ -61,6 +61,7 @@ const CardDataMahasiswaComponent = ({ id }) => {
                 title="Program Studi"
                 value={mahasiswa.programStudi?.name}
               />
+              <h6 class="card-title">Status Mahasiswa</h6>
               <StatusMahasiswaComponenet status={mahasiswa?.statusMahasiswa} />
             </div>
           </div>

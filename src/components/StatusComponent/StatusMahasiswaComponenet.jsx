@@ -9,7 +9,6 @@ const StatusMahasiswaComponenet = ({ status }) => {
 
   return (
     <>
-      <h6 class="card-title">Status Mahasiswa</h6>
       <div
         className="badge badge-success"
         data-toggle="popover"

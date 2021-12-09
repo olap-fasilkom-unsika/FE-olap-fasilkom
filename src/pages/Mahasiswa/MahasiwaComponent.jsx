@@ -1,5 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import StatusMahasiswaComponenet from "../../components/StatusComponent/StatusMahasiswaComponenet";
 
 const MahasiwaComponent = (props) => {
   return (
@@ -10,7 +11,7 @@ const MahasiwaComponent = (props) => {
       <td>{props.noHp}</td>
       <td>{props.tahunMasuk}</td>
       <td>{props.programStudi}</td>
-      <td>{props.status}</td>
+      <td><StatusMahasiswaComponenet status={props.status}/></td>
       <td>
         <Link
           to={{

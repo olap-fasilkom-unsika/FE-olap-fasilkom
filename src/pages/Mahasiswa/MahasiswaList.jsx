@@ -1,29 +1,67 @@
 import React, { useEffect, useState } from "react";
-import { getListMahasiswa } from "../../api/mahasiswaService";
+import {
+  getListMahasiswa,
+  getListStatusMahasiswa,
+  getMahasiswaByStatus,
+} from "../../api/mahasiswaService";
 import MahasiwaComponent from "./MahasiwaComponent";
 import ModuleDataTable from "../../js/ModuleDataTable";
 import ProgressHeightWidth from "../../js/ProgressHeightWidth";
+import DetailInformationComponent from "../../components/DetailInformationComponent";
+import { Button } from "bootstrap";
 
 const MahasiswaList = () => {
-  const [Mahasiswa, setMahasiswa] = useState([]);
+  const [mahasiswa, setMahasiswa] = useState([]);
+  const [status, setStatus] = useState('Semua');
+  const [listStatus, setListStatus] = useState();
   const [loading, setLoading] = useState(false);
 
   useEffect(() => {
-    loadData();
-  }, []);
-
-  const loadData = () => {
+    loadDataStatus();
+    loadDataMahasiswa();
+  }, [status]);
+  
+  const loadDataMahasiswa = () => {
     setLoading(true);
-    getListMahasiswa()
+    if (status === "Semua") {
+      getListMahasiswa()
+        .then((response) => {
+          setMahasiswa(response.data.data.mahasiswa);
+        })
+        .catch((err) => {
+          console.log(err);
+        })
+        .finally(() => {
+          setLoading(false);
+          ModuleDataTable();
+        });
+      } else {
+      getMahasiswaByStatus(status)
+        .then((response) => {
+          setMahasiswa(response.data.data.mahasiswa);
+          console.log(response.data.data.mahasiswa);
+        })
+        .catch((err) => {
+          console.log(err);
+        })
+        .finally(() => {
+          setLoading(false);
+          ModuleDataTable();
+        });
+    }
+  };
+
+  const loadDataStatus = () => {
+    getListStatusMahasiswa()
       .then((response) => {
-        setMahasiswa(response.data.data.mahasiswa);
+        setListStatus(response.data.data);
+        // console.log(response.data.data);
       })
       .catch((err) => {
         console.log(err);
       })
       .finally(() => {
         setLoading(false);
-        ModuleDataTable();
       });
   };
 
@@ -34,8 +72,44 @@ const MahasiswaList = () => {
     <div className="row">
       <div className="col-12">
         <div className="card">
-          <div className="card-header">
+          <div className="card-header d-flex justify-content-between">
             <h4>Tabel Data Mahasiswa</h4>
+            <div className="dropdown ">
+              <button
+                className="btn btn-primary dropdown-toggle"
+                type="button"
+                id="dropdownMenuButton"
+                data-toggle="dropdown"
+                aria-haspopup="true"
+                aria-expanded="false"
+              >
+                Status Mahasiswa
+                {/* {status} */}
+              </button>
+              <div className="dropdown-menu">
+                <button
+                  className={"dropdown-item"}
+                  onClick={() => setStatus("Semua")}
+                >
+                  Semua
+                </button>
+                <button
+                  className={"dropdown-item"}
+                  onClick={() => setStatus("AB")}
+                >
+                  AB
+                </button>
+                {listStatus?.map((sts) => (
+                  <button
+                    key={sts.id}
+                    className={"dropdown-item"}
+                    onClick={() => setStatus(sts.id)}
+                  >
+                    {sts.id}
+                  </button>
+                ))}
+              </div>
+            </div>
           </div>
           <div className="card-body">
             <div className="table-responsive">
@@ -53,7 +127,7 @@ const MahasiswaList = () => {
                   </tr>
                 </thead>
                 <tbody>
-                  {Mahasiswa.map((mhs, imhs) => (
+                  {mahasiswa?.map((mhs, imhs) => (
                     <MahasiwaComponent
                       key={mhs.nim}
                       id={mhs.nim}
@@ -63,7 +137,7 @@ const MahasiswaList = () => {
                       noHp={mhs.noHp}
                       tahunMasuk={mhs.tahunMasuk}
                       programStudi={mhs.programStudi.name}
-                      status={mhs.statusMahasiswa.id}
+                      status={mhs.statusMahasiswa}
                     />
                   ))}
                 </tbody>
