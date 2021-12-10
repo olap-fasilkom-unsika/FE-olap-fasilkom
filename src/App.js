@@ -1,13 +1,15 @@
 import React from "react";
-import { Switch, Route} from "react-router-dom";
+import { Switch, Route } from "react-router-dom";
 import { Header, Footer, Sidebar } from "./components/admin";
 import { useLocation } from "react-router-dom";
 
 import { Dashboard } from "./pages/Dashboard/Dashboard";
-import DataMahasiswa, { DataDosen } from "./pages/Mahasiswa/DataDosen";
-import DetailMahasiswa from "./pages/Mahasiswa/DetailDosen";
 import SeminarProposal from "./pages/JadwalKegiatan/SeminarProposal";
 import ScrollToTop from "./ScrollToTop";
+import DataMahasiswa from "./pages/Mahasiswa/DataMahasiswa";
+import DetailMahasiswa from "./pages/Mahasiswa/DetailMahasiswa";
+import DataDosen from "./pages/Dosen/DataDosen";
+import DetailDosen from "./pages/Dosen/DetailDosen";
 
 // const Posts = React.lazy(() => import('./pages/Pages/Features/Posts'));
 
@@ -44,7 +46,7 @@ function App() {
             <Route path="/mahasiswa/detail" component={DetailMahasiswa} />
             <Route path="/seminar-proposal" exact component={SeminarProposal} />
             <Route path="/dosen" exact component={DataDosen} />
-            <Route path="/dosen/detail" exact component={DataDosen} />
+            <Route path="/dosen/detail" exact component={DetailDosen} />
           </Switch>
         </React.Suspense>
         <Footer />

@@ -8,10 +8,10 @@ const DosenList = () => {
   const [loading, setLoading] = useState(false);
 
   useEffect(() => {
-    loadDataMahasiswa();
+    loadDataDosen();
   }, []);
 
-  const loadDataMahasiswa = () => {
+  const loadDataDosen = () => {
     setLoading(true);
     getListDosen()
       .then((response) => {
@@ -61,7 +61,6 @@ const DosenList = () => {
                       noHp={dsn.noHp}
                       email={dsn.user.email}
                       jenisKelamin={dsn.user.gender}
-                      
                     />
                   ))}
                 </tbody>
