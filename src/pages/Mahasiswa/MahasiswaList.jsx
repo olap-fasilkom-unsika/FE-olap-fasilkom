@@ -84,25 +84,18 @@ const MahasiswaList = () => {
                 aria-expanded="false"
               >
                 Status Mahasiswa
-                {/* {status} */}
               </button>
               <div className="dropdown-menu">
                 <button
-                  className={"dropdown-item"}
+                  className={status === 'Semua' ? 'dropdown-item active' : 'dropdown-item'}
                   onClick={() => setStatus("Semua")}
                 >
                   Semua
                 </button>
-                <button
-                  className={"dropdown-item"}
-                  onClick={() => setStatus("AB")}
-                >
-                  AB
-                </button>
                 {listStatus?.map((sts) => (
                   <button
                     key={sts.id}
-                    className={"dropdown-item"}
+                    className={status === sts.id ? 'dropdown-item active' : 'dropdown-item'}
                     onClick={() => setStatus(sts.id)}
                   >
                     {sts.id}
