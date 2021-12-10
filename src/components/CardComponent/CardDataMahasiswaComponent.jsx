@@ -2,12 +2,10 @@ import React, { useEffect, useState } from "react";
 import StatusMahasiswaComponenet from "../StatusComponent/StatusMahasiswaComponenet";
 import CardComponent from "./CardComponent";
 import DetailInformationComponent from "../DetailInformationComponent";
-import { useHistory } from "react-router-dom";
 import { getMahasiswaById } from "../../api/mahasiswaService";
 
 const CardDataMahasiswaComponent = ({ id }) => {
-  const history = useHistory();
-
+  
   const [mahasiswa, setMahasiswa] = useState([]);
   const [loading, setLoading] = useState(false);
 
@@ -28,9 +26,7 @@ const CardDataMahasiswaComponent = ({ id }) => {
         setLoading(false);
       });
   };
-  if (typeof id === "undefined") {
-    history.push("/mahasiswa");
-  }
+  
 
   if (loading) {
     return <div></div>;

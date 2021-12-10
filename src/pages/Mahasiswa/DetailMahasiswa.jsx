@@ -5,9 +5,14 @@ import CardYudisiumComponent from "../../components/CardComponent/CardYudisiumCo
 import CardProposalComponent from "../../components/CardComponent/CardProposalComponent";
 import CardSkripsiComponent from "../../components/CardComponent/CardSkripsiComponent";
 import MahasiswaComponent from "./MahasiswaComponent";
+import { useHistory } from "react-router";
 
 
 const DetailMahasiswa = (props) => {
+  const history = useHistory();
+  if (typeof props.location.props === "undefined") {
+    history.push("/mahasiswa");
+  }
   return (
     <MahasiswaComponent
       body={
