@@ -2,13 +2,15 @@ import React from "react";
 import { Link } from "react-router-dom";
 import StatusMahasiswaComponenet from "../../components/StatusComponent/StatusMahasiswaComponenet";
 
-const MahasiwaComponent = (props) => {
+const MahasiwaRowComponent = (props) => {
   return (
     <tr>
       <td>{props.number}</td>
       <td>{props.nim}</td>
       <td>{props.nama}</td>
+      <td>{props.email}</td>
       <td>{props.noHp}</td>
+      <td>{props.gender}</td>
       <td>{props.tahunMasuk}</td>
       <td>{props.programStudi}</td>
       <td><StatusMahasiswaComponenet status={props.status}/></td>
@@ -27,4 +29,4 @@ const MahasiwaComponent = (props) => {
   );
 };
 
-export default MahasiwaComponent;
+export default MahasiwaRowComponent;

@@ -1,20 +1,20 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
-const DosenComponent = ({ body }) => {
+const MahasiswaComponent = ({ body }) => {
   return (
     <div className="main-content">
       <section className="section">
         <div className="section-header">
-          <h1>Dosen</h1>
+          <h1>Mahasiswa</h1>
           <div className="section-header-breadcrumb">
             <div className="breadcrumb-item active">
               <Link to=''>Manage</Link>
             </div>
             <div className="breadcrumb-item">
-              <Link to=''>Dosen</Link>
+              <Link to=''>Mahasiswa</Link>
             </div>
-            <div className="breadcrumb-item">Detail Dosen</div>
+            <div className="breadcrumb-item">Detail Mahasiswa</div>
           </div>
         </div>
 
@@ -24,4 +24,4 @@ const DosenComponent = ({ body }) => {
   );
 };
 
-export default DosenComponent;
+export default MahasiswaComponent;

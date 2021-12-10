@@ -58,7 +58,10 @@ const CardDataMahasiswaComponent = ({ id }) => {
                 title="Jenis Kelamin"
                 value={mahasiswa.user?.gender}
               />
-              <DetailInformationComponent title="Tahun Masuk" value="2018" />
+              <DetailInformationComponent
+                title="Tahun Masuk"
+                value={mahasiswa.tahunMasuk}
+              />
               <DetailInformationComponent
                 title="Program Studi"
                 value={mahasiswa.programStudi?.name}

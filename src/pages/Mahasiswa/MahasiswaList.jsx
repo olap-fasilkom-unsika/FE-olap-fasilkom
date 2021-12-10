@@ -4,8 +4,8 @@ import {
   getListStatusMahasiswa,
   getMahasiswaByStatus,
 } from "../../api/mahasiswaService";
-import MahasiwaComponent from "./MahasiwaComponent";
 import ModuleDataTable from "../../js/ModuleDataTable";
+import MahasiswaTable from "./MahasiswaTable";
 
 const MahasiswaList = () => {
   const [mahasiswa, setMahasiswa] = useState([]);
@@ -110,37 +110,7 @@ const MahasiswaList = () => {
             </div>
           </div>
           <div className="card-body">
-            <div className="table-responsive">
-              <table className="table" id="table-1">
-                <thead>
-                  <tr>
-                    <th className="text-center">No</th>
-                    <th>NPM</th>
-                    <th>Nama</th>
-                    <th>No. HP</th>
-                    <th>Tahun Masuk</th>
-                    <th>Program Studi</th>
-                    <th>Status</th>
-                    <th>Action</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  {mahasiswa?.map((mhs, imhs) => (
-                    <MahasiwaComponent
-                      key={mhs.nim}
-                      id={mhs.nim}
-                      number={imhs + 1}
-                      nim={mhs.nim}
-                      nama={mhs.nama}
-                      noHp={mhs.noHp}
-                      tahunMasuk={mhs.tahunMasuk}
-                      programStudi={mhs.programStudi.name}
-                      status={mhs.statusMahasiswa}
-                    />
-                  ))}
-                </tbody>
-              </table>
-            </div>
+            <MahasiswaTable mahasiswa={mahasiswa} />
           </div>
         </div>
       </div>

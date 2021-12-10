@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import MahasiwaComponent from "./DosenComponent";
+import MahasiwaComponent from "./DosenRowComponent";
 import ModuleDataTable from "../../js/ModuleDataTable";
 import { getListDosen } from "../../api/dosenService";
 

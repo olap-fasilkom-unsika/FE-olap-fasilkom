@@ -4,26 +4,14 @@ import CardDataMahasiswaComponent from "../../components/CardComponent/CardDataM
 import CardYudisiumComponent from "../../components/CardComponent/CardYudisiumComponent";
 import CardProposalComponent from "../../components/CardComponent/CardProposalComponent";
 import CardSkripsiComponent from "../../components/CardComponent/CardSkripsiComponent";
-import { Link } from "react-router-dom";
+import MahasiswaComponent from "./MahasiswaComponent";
+
 
 const DetailMahasiswa = (props) => {
   return (
-    <div className="main-content">
-      <section className="section">
-        <div className="section-header">
-          <h1>Mahasiswa</h1>
-          <div className="section-header-breadcrumb">
-            <div className="breadcrumb-item active">
-              <Link>Manage</Link>
-            </div>
-            <div className="breadcrumb-item">
-              <Link>Mahasiswa</Link>
-            </div>
-            <div className="breadcrumb-item">Detail Mahasiswa</div>
-          </div>
-        </div>
-
-        <div className="section-body">
+    <MahasiswaComponent
+      body={
+        <>
           <h2 className="section-title">Detail Mahasiswa</h2>
           <CardDataMahasiswaComponent id={props.location.props} />
           <div className="row">
@@ -35,9 +23,9 @@ const DetailMahasiswa = (props) => {
               <CardYudisiumComponent />
             </div>
           </div>
-        </div>
-      </section>
-    </div>
+        </>
+      }
+    />
   );
 };
 
