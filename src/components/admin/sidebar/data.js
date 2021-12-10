@@ -28,6 +28,18 @@ export const Data = {
     },
     {
       dropdown: true,
+
+      name: "Dosen",
+      icon: "fas fa-user-tie",
+      children: [
+        {
+          name: "Data Dosen",
+          url: "/dosen",
+        },
+      ],
+    },
+    {
+      dropdown: true,
       name: "Jadwal Kegiatan",
       icon: "fas fa-table",
       children: [

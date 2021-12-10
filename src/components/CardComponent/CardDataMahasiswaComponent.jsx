@@ -3,7 +3,6 @@ import StatusMahasiswaComponenet from "../StatusComponent/StatusMahasiswaCompone
 import CardComponent from "./CardComponent";
 import DetailInformationComponent from "../DetailInformationComponent";
 import { useHistory } from "react-router-dom";
-import Error404 from "../../pages/Errors/404";
 import { getMahasiswaById } from "../../api/mahasiswaService";
 
 const CardDataMahasiswaComponent = ({ id }) => {
@@ -29,12 +28,12 @@ const CardDataMahasiswaComponent = ({ id }) => {
         setLoading(false);
       });
   };
-  if (typeof id === 'undefined') {
+  if (typeof id === "undefined") {
     history.push("/mahasiswa");
   }
 
   if (loading) {
-    return <div></div>
+    return <div></div>;
   }
   return (
     <CardComponent
@@ -45,7 +44,10 @@ const CardDataMahasiswaComponent = ({ id }) => {
             <div className="col-lg-6 col-md-6">
               <DetailInformationComponent title="Nama" value={mahasiswa.nama} />
               <DetailInformationComponent title="NPM" value={mahasiswa.nim} />
-              <DetailInformationComponent title="No. Hp" value={mahasiswa.noHp} />
+              <DetailInformationComponent
+                title="No. Hp"
+                value={mahasiswa.noHp}
+              />
               <DetailInformationComponent
                 title="Email"
                 value={mahasiswa.user?.email}
@@ -61,7 +63,8 @@ const CardDataMahasiswaComponent = ({ id }) => {
                 title="Program Studi"
                 value={mahasiswa.programStudi?.name}
               />
-              <h6 class="card-title">Status Mahasiswa</h6>
+              {/* <h6 class="card-title">Status Mahasiswa</h6> */}
+              <p className="card-text mb-0">Status Mahasiswa</p>
               <StatusMahasiswaComponenet status={mahasiswa?.statusMahasiswa} />
             </div>
           </div>

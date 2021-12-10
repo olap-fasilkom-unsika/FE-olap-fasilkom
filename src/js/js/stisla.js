@@ -33,7 +33,7 @@ import * as jQuery from "jquery"
       // Get modal body
       let body = options.body;
 
-      if (typeof body == 'object') {
+      if (typeof body === 'object') {
         if (body.length) {
           let part = body;
           body = body.removeAttr('id').clone().removeClass('modal-part');
@@ -44,13 +44,13 @@ import * as jQuery from "jquery"
       }
 
       // Modal base template
-      var modal_template = '   <div class="modal' + (options.animation == true ? ' fade' : '') + '" tabindex="-1" role="dialog" id="' + id + '">  ' +
+      var modal_template = '   <div class="modal' + (options.animation === true ? ' fade' : '') + '" tabindex="-1" role="dialog" id="' + id + '">  ' +
         '     <div class="modal-dialog ' + options.size + (options.center ? ' modal-dialog-centered' : '') + '" role="document">  ' +
         '       <div class="modal-content">  ' +
-        ((options.header == true) ?
+        ((options.header === true) ?
           '         <div class="modal-header">  ' +
           '           <h5 class="modal-title">' + options.title + '</h5>  ' +
-          ((options.closeButton == true) ?
+          ((options.closeButton === true) ?
             '           <button type="button" class="close" data-dismiss="modal" aria-label="Close">  ' +
             '             <span aria-hidden="true">&times;</span>  ' +
             '           </button>  ' :
@@ -77,7 +77,7 @@ import * as jQuery from "jquery"
         let id = "id" in item ? item.id : '';
 
         // Button template
-        this_button = '<button type="' + ("submit" in item && item.submit == true ? 'submit' : 'button') + '" class="' + item.class + '" id="' + id + '">' + item.text + '</button>';
+        this_button = '<button type="' + ("submit" in item && item.submit === true ? 'submit' : 'button') + '" class="' + item.class + '" id="' + id + '">' + item.text + '</button>';
 
         // add click event to the button
         this_button = $(this_button).off('click').on("click", function () {
@@ -117,10 +117,10 @@ import * as jQuery from "jquery"
           // when modal is shown
           $(modal_template).on('shown.bs.modal', function () {
             // if type of `autoFocus` option is `boolean`
-            if (typeof options.autoFocus == 'boolean')
+            if (typeof options.autoFocus === 'boolean')
               modal_form.find('input:eq(0)').focus(); // the first input element will be focused
             // if type of `autoFocus` option is `string` and `autoFocus` option is an HTML element
-            else if (typeof options.autoFocus == 'string' && modal_form.find(options.autoFocus).length)
+            else if (typeof options.autoFocus === 'string' && modal_form.find(options.autoFocus).length)
               modal_form.find(options.autoFocus).focus(); // find elements and focus on that
           });
         }
@@ -185,11 +185,11 @@ import * as jQuery from "jquery"
     var me = $(card);
 
     me.addClass('card-progress');
-    if (options.spinner == false) {
+    if (options.spinner === false) {
       me.addClass('remove-spinner');
     }
 
-    if (options.dismiss == true) {
+    if (options.dismiss === true) {
       var btn_dismiss = '<a class="btn btn-danger card-progress-dismiss">' + options.dismissText + '</a>';
       btn_dismiss = $(btn_dismiss).off('click').on('click', function () {
         me.removeClass('card-progress');
@@ -241,7 +241,7 @@ import * as jQuery from "jquery"
       '</div>';
 
     var append_element = element;
-    if (chat.type == 'typing') {
+    if (chat.type === 'typing') {
       append_element = typing_element;
     }
 

@@ -1,5 +1,5 @@
 import React from "react";
-import { Switch, Route, BrowserRouter as Router } from "react-router-dom";
+import { Switch, Route} from "react-router-dom";
 import { Header, Footer, Sidebar } from "./components/admin";
 import { useLocation } from "react-router-dom";
 
@@ -43,6 +43,7 @@ function App() {
             <Route path="/mahasiswa" exact component={DataMahasiswa} />
             <Route path="/mahasiswa/detail" component={DetailMahasiswa} />
             <Route path="/seminar-proposal" exact component={SeminarProposal} />
+            <Route path="/dosen" exact component={DataMahasiswa} />
           </Switch>
         </React.Suspense>
         <Footer />

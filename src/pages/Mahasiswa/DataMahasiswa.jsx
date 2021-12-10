@@ -1,21 +1,8 @@
 import React, { Component } from "react";
-import ProgressHeightWidth from "../../js/ProgressHeightWidth";
-import ModuleDataTable from "../../js/ModuleDataTable";
-import { Data } from "./data";
-import { NavLink } from "react-router-dom";
-import DetailMahasiswa from "./DetailMahasiswa";
+import { Link } from "react-router-dom";
 import MahasiswaList from "./MahasiswaList";
 
 export class DataMahasiswa extends Component {
-  // componentDidMount() {
-  //   ProgressHeightWidth();
-  //   ModuleDataTable();
-  // }
-
-  
-
-  
-
   render() {
     return (
       <div className="main-content">
@@ -24,10 +11,10 @@ export class DataMahasiswa extends Component {
             <h1>Mahasiswa</h1>
             <div className="section-header-breadcrumb">
               <div className="breadcrumb-item active">
-                <a href="#">Manage</a>
+                <Link to=''>Manage</Link>
               </div>
               <div className="breadcrumb-item">
-                <a href="#">Mahasiswa</a>
+                <Link to=''>Mahasiswa</Link>
               </div>
               <div className="breadcrumb-item">Data Mahasiswa</div>
             </div>

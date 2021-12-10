@@ -25,7 +25,7 @@ export default function ModuleDataTabl() {
                 total = all.length,
                 checked_length = checked.length;
 
-            if (role == "dad") {
+            if (role === "dad") {
                 if (me.is(":checked")) {
                     all.prop("checked", true);
                 } else {

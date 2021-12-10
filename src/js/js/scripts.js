@@ -110,7 +110,7 @@ $(function () {
 
         $('.main-sidebar .sidebar-menu li.active').removeClass('active');
 
-        if (active == true) {
+        if (active === true) {
           me.parent().removeClass('active');
           me.parent().find('> .dropdown-menu').slideUp(500, function () {
             update_sidebar_nicescroll();
@@ -226,7 +226,7 @@ $(function () {
 
     if (layout_classes.length > 0) {
       layout_classes.forEach(function (item) {
-        if (item.indexOf('layout-') != -1) {
+        if (item.indexOf('layout-') !== -1) {
           now_layout_class = item;
         }
       });
@@ -253,7 +253,7 @@ $(function () {
 
       update_sidebar_nicescroll();
 
-      if (now_layout_class == 'layout-3') {
+      if (now_layout_class === 'layout-3') {
         let nav_second_classes = $(".navbar-secondary").attr('class'),
           nav_second = $(".navbar-secondary");
 
@@ -289,7 +289,7 @@ $(function () {
       let nav_second_classes = $(".main-sidebar").attr('data-nav-classes'),
         nav_second = $(".main-sidebar");
 
-      if (now_layout_class == 'layout-3' && nav_second.hasClass('main-sidebar')) {
+      if (now_layout_class === 'layout-3' && nav_second.hasClass('main-sidebar')) {
         nav_second.find(".sidebar-menu li a.has-dropdown").off('click');
         nav_second.find('.sidebar-brand').remove();
         nav_second.removeAttr('class');
@@ -305,7 +305,7 @@ $(function () {
         $(".main-wrapper").addClass("container");
         // if(sidebar_nicescroll != null)
         //   sidebar_nicescroll.remove();
-      } else if (now_layout_class == 'layout-2') {
+      } else if (now_layout_class === 'layout-2') {
         $("body").addClass("layout-2");
       } else {
         update_sidebar_nicescroll();

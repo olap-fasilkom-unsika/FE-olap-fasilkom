@@ -6,13 +6,10 @@ import {
 } from "../../api/mahasiswaService";
 import MahasiwaComponent from "./MahasiwaComponent";
 import ModuleDataTable from "../../js/ModuleDataTable";
-import ProgressHeightWidth from "../../js/ProgressHeightWidth";
-import DetailInformationComponent from "../../components/DetailInformationComponent";
-import { Button } from "bootstrap";
 
 const MahasiswaList = () => {
   const [mahasiswa, setMahasiswa] = useState([]);
-  const [status, setStatus] = useState('Semua');
+  const [status, setStatus] = useState("Semua");
   const [listStatus, setListStatus] = useState();
   const [loading, setLoading] = useState(false);
 
@@ -20,7 +17,7 @@ const MahasiswaList = () => {
     loadDataStatus();
     loadDataMahasiswa();
   }, [status]);
-  
+
   const loadDataMahasiswa = () => {
     setLoading(true);
     if (status === "Semua") {
@@ -35,7 +32,7 @@ const MahasiswaList = () => {
           setLoading(false);
           ModuleDataTable();
         });
-      } else {
+    } else {
       getMahasiswaByStatus(status)
         .then((response) => {
           setMahasiswa(response.data.data.mahasiswa);
@@ -87,7 +84,11 @@ const MahasiswaList = () => {
               </button>
               <div className="dropdown-menu">
                 <button
-                  className={status === 'Semua' ? 'dropdown-item active' : 'dropdown-item'}
+                  className={
+                    status === "Semua"
+                      ? "dropdown-item active"
+                      : "dropdown-item"
+                  }
                   onClick={() => setStatus("Semua")}
                 >
                   Semua
@@ -95,7 +96,11 @@ const MahasiswaList = () => {
                 {listStatus?.map((sts) => (
                   <button
                     key={sts.id}
-                    className={status === sts.id ? 'dropdown-item active' : 'dropdown-item'}
+                    className={
+                      status === sts.id
+                        ? "dropdown-item active"
+                        : "dropdown-item"
+                    }
                     onClick={() => setStatus(sts.id)}
                   >
                     {sts.id}

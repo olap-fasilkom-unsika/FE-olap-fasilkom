@@ -2,11 +2,8 @@ import React, { Component } from "react";
 
 import { Link, NavLink } from "react-router-dom";
 import { Data } from "./data";
-import { useLocation } from "react-router-dom";
 import "../../../js/js/scripts";
 import "../../../js/js/stisla";
-
-// import SidebarGlobal from "../../../js/SidebarGlobal";
 
 export class SideBar extends Component {
   componentDidMount() {}
@@ -35,9 +32,9 @@ export class SideBar extends Component {
                 if (menu.active) {
                   comp = (
                     <li key={iMenu} className="nav-item dropdown active">
-                      <a href="#" className="nav-link has-dropdown">
+                      <Link to='' className="nav-link has-dropdown">
                         <i className={menu.icon} /> <span> {menu.name} </span>
-                      </a>{" "}
+                      </Link>{" "}
                       <ul className="dropdown-menu">
                         {" "}
                         {menu.children.map((submenu, iSubmenu) => {
@@ -120,9 +117,9 @@ export class SideBar extends Component {
                 } else {
                   comp = (
                     <li key={iMenu} className="nav-item dropdown">
-                      <a href="#" className="nav-link has-dropdown">
+                      <Link to='' className="nav-link has-dropdown">
                         <i className={menu.icon} /> <span> {menu.name} </span>
-                      </a>{" "}
+                      </Link>{" "}
                       <ul className="dropdown-menu">
                         {" "}
                         {menu.children.map((submenu, iSubmenu) => {
