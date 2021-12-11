@@ -1,8 +1,9 @@
 import React, { useEffect, useState } from "react";
-import StatusMahasiswaComponenet from "../StatusComponent/StatusMahasiswaComponenet";
-import CardComponent from "./CardComponent";
-import DetailInformationComponent from "../DetailInformationComponent";
+import StatusMahasiswaComponenet from "../../components/StatusComponent/StatusMahasiswaComponenet";
+import CardComponent from "../../components/CardComponent/CardComponent";
+import DetailInformationComponent from "../../components/DetailInformationComponent";
 import { getMahasiswaById } from "../../api/mahasiswaService";
+import LoadingComponent from "../../components/LoadingComponent";
 
 const CardDataMahasiswaComponent = ({ id }) => {
   
@@ -29,7 +30,7 @@ const CardDataMahasiswaComponent = ({ id }) => {
   
 
   if (loading) {
-    return <div></div>;
+    return <LoadingComponent />;
   }
   return (
     <CardComponent

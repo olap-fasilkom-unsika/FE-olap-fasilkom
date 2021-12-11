@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { getDosenBebanSempro } from "../../api/dosenService";
 import CardComponent from "../../components/CardComponent/CardComponent";
+import LoadingComponent from "../../components/LoadingComponent";
 
 const BebanSemproComponent = ({ id }) => {
   const [bebanSempro, setBebanSempro] = useState([]);
@@ -24,7 +25,7 @@ const BebanSemproComponent = ({ id }) => {
   };
 
   if (loading) {
-    return <div></div>;
+    return <LoadingComponent />;
   }
 
   const rowBebanSempro = [];

@@ -4,6 +4,7 @@ import {
   getListStatusMahasiswa,
   getMahasiswaByStatus,
 } from "../../api/mahasiswaService";
+import LoadingComponent from "../../components/LoadingComponent";
 import ModuleDataTable from "../../js/ModuleDataTable";
 import MahasiswaTable from "./MahasiswaTable";
 
@@ -63,7 +64,7 @@ const MahasiswaList = () => {
   };
 
   if (loading) {
-    return <div>Loading</div>;
+    return <LoadingComponent />;
   }
   return (
     <div className="row">

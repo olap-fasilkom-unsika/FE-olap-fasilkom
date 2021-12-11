@@ -1,11 +1,11 @@
 import React from "react";
 import "../../App.css";
-import CardDataMahasiswaComponent from "../../components/CardComponent/CardDataMahasiswaComponent";
 import CardYudisiumComponent from "../../components/CardComponent/CardYudisiumComponent";
 import CardProposalComponent from "../../components/CardComponent/CardProposalComponent";
 import CardSkripsiComponent from "../../components/CardComponent/CardSkripsiComponent";
 import MahasiswaComponent from "./MahasiswaComponent";
 import { useHistory } from "react-router";
+import CardDataMahasiswaComponent from "./CardDataMahasiswaComponent";
 
 
 const DetailMahasiswa = (props) => {

@@ -3,6 +3,7 @@ import MahasiwaComponent from "./DosenRowComponent";
 import ModuleDataTable from "../../js/ModuleDataTable";
 import { getListDosen } from "../../api/dosenService";
 import ReactLoading from "react-loading";
+import LoadingComponent from "../../components/LoadingComponent";
 
 const DosenList = () => {
   const [dosen, setDosen] = useState([]);
@@ -29,15 +30,7 @@ const DosenList = () => {
 
   if (loading) {
     return (
-      <div className="row">
-        <div className="col-lg">
-          <ReactLoading
-            className="d-flex justify-content-center"
-            type="bubbles"
-            color="#6777f0"
-          />
-        </div>
-      </div>
+      <LoadingComponent />
     );
   }
   return (

@@ -1,7 +1,7 @@
 import React from "react";
 import { useHistory } from "react-router";
 import "../../App.css";
-import CardDataDosenComponent from "../../components/CardComponent/CardDataDosenComponent";
+import CardDataDosenComponent from "./CardDataDosenComponent";
 import DosenComponent from "./DosenComponent";
 import BebanDosenComponent from "./BebanDosenComponent";
 import MahasiswaBimbinganComponent from "./MahasiswaBimbinganComponent";

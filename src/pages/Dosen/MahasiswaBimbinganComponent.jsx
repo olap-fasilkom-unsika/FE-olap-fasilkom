@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { getMahasiswaByIdDosen } from "../../api/dosenService";
 import MahasiswaTable from "../Mahasiswa/MahasiswaTable";
 import ModuleDataTable from "../../js/ModuleDataTable";
+import LoadingComponent from "../../components/LoadingComponent";
 
 const MahasiswaBimbinganComponent = ({ id }) => {
   const [mahasiswa, setMahasiswa] = useState([]);
@@ -25,6 +26,10 @@ const MahasiswaBimbinganComponent = ({ id }) => {
         ModuleDataTable();
       });
   };
+
+  if (loading) {
+    return <LoadingComponent />;
+  }
 
   return (
     <div className="row">

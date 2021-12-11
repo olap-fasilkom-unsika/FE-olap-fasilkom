@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { getDosenBebanKolokium } from "../../api/dosenService";
 import CardComponent from "../../components/CardComponent/CardComponent";
+import LoadingComponent from "../../components/LoadingComponent";
 
 const BebanKolokiumComponent = ({ id }) => {
   const [bebanKolokium, setBebanKolokium] = useState([]);
@@ -25,7 +26,7 @@ const BebanKolokiumComponent = ({ id }) => {
   };
 
   if (loading) {
-    return <div></div>;
+    return <LoadingComponent />;
   }
 
   const rowBebanKolokium = [];
