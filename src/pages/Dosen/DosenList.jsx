@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import MahasiwaComponent from "./DosenRowComponent";
 import ModuleDataTable from "../../js/ModuleDataTable";
 import { getListDosen } from "../../api/dosenService";
+import ReactLoading from "react-loading";
 
 const DosenList = () => {
   const [dosen, setDosen] = useState([]);
@@ -27,13 +28,23 @@ const DosenList = () => {
   };
 
   if (loading) {
-    return <div>Loading</div>;
+    return (
+      <div className="row">
+        <div className="col-lg">
+          <ReactLoading
+            className="d-flex justify-content-center"
+            type="bubbles"
+            color="#6777f0"
+          />
+        </div>
+      </div>
+    );
   }
   return (
     <div className="row">
       <div className="col-12">
         <div className="card">
-          <div className="card-header d-flex justify-content-between">
+          <div className="card-header">
             <h4>Tabel Data Dosen</h4>
           </div>
           <div className="card-body">

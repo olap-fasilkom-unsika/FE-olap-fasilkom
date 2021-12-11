@@ -16,7 +16,6 @@ const MahasiswaBimbinganComponent = ({ id }) => {
     getMahasiswaByIdDosen(id)
       .then((response) => {
         setMahasiswa(response.data.data.mahasiswa);
-        console.log(response.data.data.mahasiswa);
       })
       .catch((err) => {
         console.log(err);
@@ -32,7 +31,7 @@ const MahasiswaBimbinganComponent = ({ id }) => {
       <div className="col-12">
         <div className="card">
           <div className="card-header d-flex justify-content-between">
-            <h4>Tabel Mahasiswa Bimbingan</h4>
+            <h4>Mahasiswa Bimbingan</h4>
           </div>
           <div className="card-body">
             <MahasiswaTable mahasiswa={mahasiswa} />
