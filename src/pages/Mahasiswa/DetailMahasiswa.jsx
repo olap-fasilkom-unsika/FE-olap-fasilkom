@@ -7,7 +7,6 @@ import MahasiswaComponent from "./MahasiswaComponent";
 import { useHistory } from "react-router";
 import CardDataMahasiswaComponent from "./CardDataMahasiswaComponent";
 
-
 const DetailMahasiswa = (props) => {
   const history = useHistory();
   if (typeof props.location.props === "undefined") {
@@ -21,11 +20,11 @@ const DetailMahasiswa = (props) => {
           <CardDataMahasiswaComponent id={props.location.props} />
           <div className="row">
             <div className="col-12 col-md-6 col-lg-6">
-              <CardProposalComponent />
+              <CardProposalComponent id={props.location.props} />
             </div>
             <div className="col-12 col-md-6 col-lg-6">
-              <CardSkripsiComponent />
-              <CardYudisiumComponent />
+              <CardSkripsiComponent id={props.location.props} />
+              <CardYudisiumComponent id={props.location.props} />
             </div>
           </div>
         </>

@@ -1,19 +1,113 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import CardComponent from "./CardComponent";
 import DetailInformationComponent from "../DetailInformationComponent";
+import {
+  getProposalByIdMahasiswa,
+  getSeminarByIdMahasiswa,
+} from "../../api/semproService";
+import LoadingComponent from "../LoadingComponent";
+import StatusPersetujuanComponenet from "../StatusComponent/StatusPersetujuanComponenet";
 
-const CardProposalComponent = () => {
+const CardProposalComponent = ({ id }) => {
+  const [proposal, setProposal] = useState([]);
+  const [seminar, setSeminar] = useState([]);
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState();
+  useEffect(() => {
+    loadData();
+  }, []);
+
+  const loadData = () => {
+    setLoading(true);
+    getProposalByIdMahasiswa(id)
+      .then((response) => {
+        setProposal(response.data.data);
+      })
+      .catch((err) => {
+        setProposal(err.response);
+      })
+      .finally(() => {
+        setLoading(false);
+      });
+    getSeminarByIdMahasiswa(id)
+      .then((response) => {
+        setSeminar(response.data.data);
+        console.log(response.data.data);
+      })
+      .catch((err) => {
+        console.log(err.response);
+        setSeminar(err.response);
+      })
+      .finally(() => {
+        setLoading(false);
+      });
+  };
+
+  if (loading) {
+    return <LoadingComponent />;
+  }
+
+  if (proposal?.status === 404) {
+    return (
+      <CardComponent
+        title="Proposal"
+        body={<h6 class="card-title text-center">{proposal.data.message}</h6>}
+      />
+    );
+  }
+
+  let resultSeminar;
+  if (seminar?.status === 404) {
+    resultSeminar = () => (
+      <h6 class="card-title text-center">{seminar.data.message}</h6>
+    );
+  } else {
+    resultSeminar = () => (
+      <div
+        class="accordion-body collapse show"
+        id="seminar-proposal"
+        data-parent="#accordion"
+      >
+        <DetailInformationComponent
+          title="Tanggal Pelaksanaan"
+          value={seminar.tanggalPelaksanaan}
+        />
+
+        <DetailInformationComponent
+          title="Tempat Pelaksanaan"
+          value={seminar.tempatPelaksanaan}
+        />
+        <DetailInformationComponent
+          title="Dosen Penguji"
+          value={seminar.dosenPenguji?.name}
+        />
+        <DetailInformationComponent
+          title="Gelombang Seminar"
+          value={seminar.gelombangSeminar?.name}
+        />
+      </div>
+    );
+  }
   return (
     <CardComponent
       title="Proposal"
       body={
         <>
-          <DetailInformationComponent title="Judul" value="123" />
-          <DetailInformationComponent title="Deskripsi" value="123" />
-          <DetailInformationComponent title="Request Date" value="123" />
-          <DetailInformationComponent title="Dosen Pembimbing" value="123" />
+          <DetailInformationComponent title="Judul" value={proposal.judul} />
+          <DetailInformationComponent
+            title="Deskripsi"
+            value={proposal.deskripsi}
+          />
+          <DetailInformationComponent
+            title="Request Date"
+            value={proposal.requestDate}
+          />
+          <DetailInformationComponent
+            title="Dosen Pembimbing"
+            value={proposal.dosenPembimbing?.name}
+          />
           <h6 class="card-title">Status</h6>
-          <div class="badge badge-success">Disetujui</div>
+          <StatusPersetujuanComponenet status={proposal.statusProposal} />
           <div className="accordion mt-4">
             <div id="accordion">
               <div
@@ -25,35 +119,7 @@ const CardProposalComponent = () => {
               >
                 <h4>Seminar Proposal</h4>
               </div>
-              <div
-                class="accordion-body collapse show"
-                id="seminar-proposal"
-                data-parent="#accordion"
-              >
-                <DetailInformationComponent
-                  title="Tanggal Pelaksanaan"
-                  value="123"
-                />
-                
-                <DetailInformationComponent
-                  title="Tempat Pelaksanaan"
-                  value="123"
-                />
-                <DetailInformationComponent
-                  title="Dosen Penguji"
-                  value="123"
-                />
-                <DetailInformationComponent
-                  title="Gelombang Seminar"
-                  value="123"
-                />
-                <DetailInformationComponent
-                  title="Tanggal Revisi"
-                  value="123"
-                />
-                <h6 class="card-title">Status</h6>
-                <div class="badge badge-danger">Belum disetujui</div>
-              </div>
+              {resultSeminar()}
             </div>
           </div>
         </>
