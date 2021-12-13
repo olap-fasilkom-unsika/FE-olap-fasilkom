@@ -1,0 +1,21 @@
+import http from "./httpCommon";
+
+const yudisium = "/yudisium";
+
+const getListYudisium = () => http.get(yudisium);
+const getYudisiumById = (id) => http.get(`${yudisium}/${id}`);
+const getYudisiumByIdMahasiswa = (id) =>
+  http.get(`${yudisium}/mahasiswa/${id}`);
+const createYudisium = (payload) => http.post(yudisium, payload);
+const updateYudisium = (id, payload) => http.put(`${yudisium}/${id}`, payload);
+const deleteYudisium = (id, status) =>
+  http.delete(`${yudisium}/${id}/${status}`);
+
+export {
+  getListYudisium,
+  getYudisiumById,
+  getYudisiumByIdMahasiswa,
+  createYudisium,
+  updateYudisium,
+  deleteYudisium,
+};

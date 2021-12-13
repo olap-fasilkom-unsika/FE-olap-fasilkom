@@ -1,12 +1,11 @@
 import React, { useEffect, useState } from "react";
-import CardComponent from "./CardComponent";
-import DetailInformationComponent from "../DetailInformationComponent";
 import {
   getKolokiumByIdMahasiswa,
   getSkripsiByIdMahasiswa,
 } from "../../api/kolokiumService";
-import LoadingComponent from "../LoadingComponent";
-import StatusPersetujuanComponenet from "../StatusComponent/StatusPersetujuanComponenet";
+import LoadingComponent from "../../components/LoadingComponent";
+import DetailInformationComponent from "../../components/DetailInformationComponent";
+import CardComponent from "../../components/CardComponent/CardComponent";
 
 const CardSkripsiComponent = ({ id }) => {
   const [skripsi, setSkripsi] = useState([]);

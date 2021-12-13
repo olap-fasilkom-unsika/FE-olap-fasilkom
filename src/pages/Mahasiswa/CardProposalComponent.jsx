@@ -1,10 +1,11 @@
 import React, { useEffect, useState } from "react";
-import CardComponent from "./CardComponent";
-import DetailInformationComponent from "../DetailInformationComponent";
+import CardComponent from "../../components/CardComponent/CardComponent";
+import DetailInformationComponent from "../../components/DetailInformationComponent";
 
-import LoadingComponent from "../LoadingComponent";
-import StatusPersetujuanComponenet from "../StatusComponent/StatusPersetujuanComponenet";
-import { getProposalByIdMahasiswa, getSeminarByIdMahasiswa } from "../../api/semproService copy";
+import LoadingComponent from "../../components/LoadingComponent";
+import StatusPersetujuanComponenet from "../../components/StatusComponent/StatusPersetujuanComponenet";
+import { getProposalByIdMahasiswa, getSeminarByIdMahasiswa } from "../../api/semproService";
+
 
 const CardProposalComponent = ({ id }) => {
   const [proposal, setProposal] = useState([]);
