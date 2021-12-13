@@ -52,11 +52,11 @@ const BebanKolokiumComponent = ({ id }) => {
             </tr>
           </thead>
           <tbody>
-            {rowBebanKolokium?.map((sempro, i) => (
+            {rowBebanKolokium?.map((kolokium, i) => (
               <tr key={i}>
                 <th scope="row">{`Gelombang ${i + 1}`}</th>
-                <td className="text-center">{sempro["Dosen Pembimbing"]}</td>
-                <td className="text-center">{sempro["Dosen Penguji"]}</td>
+                <td className="text-center">{kolokium.dosenPembimbing}</td>
+                <td className="text-center">{kolokium.dosenPenguji}</td>
               </tr>
             ))}
           </tbody>

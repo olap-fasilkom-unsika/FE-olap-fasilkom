@@ -25,6 +25,7 @@ const CardProposalComponent = ({ id }) => {
       })
       .catch((err) => {
         setProposal(err.response);
+        // console.clear()
       })
       .finally(() => {
         setLoading(false);
@@ -32,11 +33,10 @@ const CardProposalComponent = ({ id }) => {
     getSeminarByIdMahasiswa(id)
       .then((response) => {
         setSeminar(response.data.data);
-        console.log(response.data.data);
       })
       .catch((err) => {
-        console.log(err.response);
         setSeminar(err.response);
+        // console.clear()
       })
       .finally(() => {
         setLoading(false);
