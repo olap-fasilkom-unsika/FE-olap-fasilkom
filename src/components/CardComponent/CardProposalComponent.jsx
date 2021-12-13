@@ -1,18 +1,15 @@
 import React, { useEffect, useState } from "react";
 import CardComponent from "./CardComponent";
 import DetailInformationComponent from "../DetailInformationComponent";
-import {
-  getProposalByIdMahasiswa,
-  getSeminarByIdMahasiswa,
-} from "../../api/semproService";
+
 import LoadingComponent from "../LoadingComponent";
 import StatusPersetujuanComponenet from "../StatusComponent/StatusPersetujuanComponenet";
+import { getProposalByIdMahasiswa, getSeminarByIdMahasiswa } from "../../api/semproService copy";
 
 const CardProposalComponent = ({ id }) => {
   const [proposal, setProposal] = useState([]);
   const [seminar, setSeminar] = useState([]);
   const [loading, setLoading] = useState(false);
-  const [error, setError] = useState();
   useEffect(() => {
     loadData();
   }, []);
