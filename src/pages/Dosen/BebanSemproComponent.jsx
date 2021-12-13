@@ -53,8 +53,8 @@ const BebanSemproComponent = ({ id }) => {
             {rowBebanSempro?.map((sempro, i) => (
               <tr key={i}>
                 <th scope="row">{`Gelombang ${i + 1}`}</th>
-                <td className="text-center">{sempro["Dosen Pembimbing"]}</td>
-                <td className="text-center">{sempro["Dosen Penguji"]}</td>
+                <td className="text-center">{sempro.dosenPembimbing}</td>
+                <td className="text-center">{sempro.dosenPenguji}</td>
               </tr>
             ))}
           </tbody>
