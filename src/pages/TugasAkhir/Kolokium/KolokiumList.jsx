@@ -40,7 +40,6 @@ const KolokiumList = () => {
       getKolokiumByGelombang(gelombang)
         .then((response) => {
           setKolokium(response.data.data.kolokium);
-          console.log(response.data.data.kolokium[0].tanggalPelaksanaan);
         })
         .catch((err) => {
           console.log(err);
@@ -55,8 +54,7 @@ const KolokiumList = () => {
   const loadDataGelombang = () => {
     getListGelombangKolokium()
       .then((response) => {
-        setListGelombang(response.data.data);
-        // console.log(response.data.data);
+        setListGelombang(response.data.data);        
       })
       .catch((err) => {
         console.log(err);

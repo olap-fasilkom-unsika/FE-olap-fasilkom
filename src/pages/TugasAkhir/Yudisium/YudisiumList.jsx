@@ -36,7 +36,6 @@ const YudisiumList = () => {
       getYudisiumByGelombang(gelombang)
         .then((response) => {
           setYudisium(response.data.data.yudisium);
-          console.log(response.data.data.yudisium[0].tanggalPelaksanaan);
         })
         .catch((err) => {
           console.log(err);
@@ -52,7 +51,6 @@ const YudisiumList = () => {
     getListGelombangYudisium()
       .then((response) => {
         setListGelombang(response.data.data);
-        // console.log(response.data.data);
       })
       .catch((err) => {
         console.log(err);
@@ -94,7 +92,7 @@ const YudisiumList = () => {
       <div className="col-12">
         <div className="card">
           <div className="card-header d-flex justify-content-between">
-            <h4>Kolokium</h4>
+            <h4>Yudisium</h4>
             <div className="dropdown ">
               <button
                 className="btn btn-primary dropdown-toggle"
@@ -104,7 +102,7 @@ const YudisiumList = () => {
                 aria-haspopup="true"
                 aria-expanded="false"
               >
-                Gelombang Kolokium
+                Gelombang Yudisium
               </button>
               <div className="dropdown-menu">
                 <button

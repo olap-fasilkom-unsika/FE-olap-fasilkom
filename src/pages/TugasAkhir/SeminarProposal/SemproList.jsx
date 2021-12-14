@@ -40,7 +40,6 @@ const SemproList = () => {
       getSeminarByGelombang(gelombang)
         .then((response) => {
           setSempro(response.data.data.seminar);
-          console.log(response.data.data.seminar);
         })
         .catch((err) => {
           console.log(err);
@@ -56,7 +55,6 @@ const SemproList = () => {
     getListGelombangSeminar()
       .then((response) => {
         setListGelombang(response.data.data);
-        // console.log(response.data.data);
       })
       .catch((err) => {
         console.log(err);

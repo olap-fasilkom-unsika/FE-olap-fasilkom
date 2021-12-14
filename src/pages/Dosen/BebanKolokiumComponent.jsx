@@ -15,7 +15,6 @@ const BebanKolokiumComponent = ({ id }) => {
     getDosenBebanKolokium(id)
       .then((response) => {
         setBebanKolokium(response.data.data.gelombang);
-        console.log(response.data.data.gelombang);
       })
       .catch((err) => {
         console.log(err);
@@ -37,7 +36,6 @@ const BebanKolokiumComponent = ({ id }) => {
       rowBebanKolokium.push(value);
     }
   }
-  console.log(rowBebanKolokium);
 
   return (
     <CardComponent

@@ -38,7 +38,6 @@ const MahasiswaList = () => {
       getMahasiswaByStatus(status)
         .then((response) => {
           setMahasiswa(response.data.data.mahasiswa);
-          console.log(response.data.data.mahasiswa);
         })
         .catch((err) => {
           console.log(err);
@@ -54,7 +53,6 @@ const MahasiswaList = () => {
     getListStatusMahasiswa()
       .then((response) => {
         setListStatus(response.data.data);
-        // console.log(response.data.data);
       })
       .catch((err) => {
         console.log(err);
