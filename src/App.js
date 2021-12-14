@@ -10,6 +10,7 @@ import DetailMahasiswa from "./pages/Mahasiswa/DetailMahasiswa";
 import DataDosen from "./pages/Dosen/DataDosen";
 import DetailDosen from "./pages/Dosen/DetailDosen";
 import DataSempro from "./pages/TugasAkhir/SeminarProposal/DataSempro";
+import DataKolokium from "./pages/TugasAkhir/Kolokium/DataKolokium";
 
 // const Posts = React.lazy(() => import('./pages/Pages/Features/Posts'));
 
@@ -47,6 +48,7 @@ function App() {
             <Route path="/dosen" exact component={DataDosen} />
             <Route path="/dosen/detail" exact component={DetailDosen} />
             <Route path="/seminar-proposal" exact component={DataSempro} />
+            <Route path="/kolokium" exact component={DataKolokium} />
           </Switch>
         </React.Suspense>
         <Footer />
