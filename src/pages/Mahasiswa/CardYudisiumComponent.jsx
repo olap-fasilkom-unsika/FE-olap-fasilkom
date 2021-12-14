@@ -37,7 +37,7 @@ const CardYudisiumComponent = ({ id }) => {
     return (
       <CardComponent
         title="Yudisium"
-        body={<h6 class="card-title text-center">{yudisium.data.message}</h6>}
+        body={<h6 className="card-title text-center">{yudisium.data.message}</h6>}
       />
     );
   }
@@ -67,7 +67,7 @@ const CardYudisiumComponent = ({ id }) => {
                 title="Status Yudisium"
                 value={yudisium.gelombangYudisium?.name}
               />
-              <h6 class="card-title">Status Yudisium</h6>
+              <h6 className="card-title">Status Yudisium</h6>
               <StatusPersetujuanComponenet status={yudisium.statusYudisium} />
             </div>
           </div>

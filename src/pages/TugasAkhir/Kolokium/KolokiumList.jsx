@@ -1,5 +1,11 @@
 import React, { useEffect, useState } from "react";
-import { getKolokiumByGelombang, getListGelombangKolokium, getListKolokium } from "../../../api/kolokiumService";
+import {
+  getKolokiumByGelombang,
+  getListGelombangKolokium,
+  getListKolokium,
+} from "../../../api/kolokiumService";
+import DateFormatComponent from "../../../components/DateFormatComponent";
+import DetailInformationComponent from "../../../components/DetailInformationComponent";
 import LoadingComponent from "../../../components/LoadingComponent";
 import ModuleDataTable from "../../../js/ModuleDataTable";
 import KolokiumTable from "./KolokiumTable";
@@ -34,7 +40,7 @@ const KolokiumList = () => {
       getKolokiumByGelombang(gelombang)
         .then((response) => {
           setKolokium(response.data.data.kolokium);
-          console.log(response.data.data.kolokium);
+          console.log(response.data.data.kolokium[0].tanggalPelaksanaan);
         })
         .catch((err) => {
           console.log(err);
@@ -63,6 +69,30 @@ const KolokiumList = () => {
   if (loading) {
     return <LoadingComponent />;
   }
+
+  const gelombangSelected = () => {
+    if (gelombang !== "Semua") {
+      return (
+        <div className="row mb-3">
+          <div className="col-lg-6">
+            <DetailInformationComponent
+              title={"Tanggal Pelaksanaan"}
+              value={
+                <DateFormatComponent date={kolokium[0]?.tanggalPelaksanaan} />
+              }
+            />
+          </div>
+          <div className="col-lg-6">
+            <DetailInformationComponent
+              title={"Tempat Pelaksanaan"}
+              value={kolokium[0]?.tempatPelaksanaan}
+            />
+          </div>
+        </div>
+      );
+    }
+  };
+
   return (
     <div className="row">
       <div className="col-12">
@@ -108,6 +138,7 @@ const KolokiumList = () => {
             </div>
           </div>
           <div className="card-body">
+            {gelombangSelected()}
             <KolokiumTable kolokium={kolokium} />
           </div>
         </div>

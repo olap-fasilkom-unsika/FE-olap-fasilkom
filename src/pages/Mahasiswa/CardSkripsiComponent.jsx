@@ -49,7 +49,7 @@ const CardSkripsiComponent = ({ id }) => {
     return (
       <CardComponent
         title="Skripsi"
-        body={<h6 class="card-title text-center">{skripsi.data.message}</h6>}
+        body={<h6 className="card-title text-center">{skripsi.data.message}</h6>}
       />
     );
   }
@@ -57,12 +57,12 @@ const CardSkripsiComponent = ({ id }) => {
   let resultSeminar;
   if (kolokium?.status === 404) {
     resultSeminar = () => (
-      <h6 class="card-title text-center">{kolokium.data.message}</h6>
+      <h6 className="card-title text-center">{kolokium.data.message}</h6>
     );
   } else {
     resultSeminar = () => (
       <div
-        class="accordion-body collapse show"
+        className="accordion-body collapse show"
         id="kolokium-skripsi"
         data-parent="#accordion"
       >
@@ -117,7 +117,7 @@ const CardSkripsiComponent = ({ id }) => {
           <div className="accordion mt-4">
             <div id="accordion">
               <div
-                class="accordion-header mb-3"
+                className="accordion-header mb-3"
                 role="button"
                 data-toggle="collapse"
                 data-target="#kolokium-skripsi"

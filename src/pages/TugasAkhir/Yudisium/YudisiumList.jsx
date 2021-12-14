@@ -1,17 +1,13 @@
 import React, { useEffect, useState } from "react";
-import {
-  getListGelombangSeminar,
-  getListSeminar,
-  getSeminarByGelombang,
-} from "../../../api/semproService";
+import { getListGelombangYudisium, getListYudisium, getYudisiumByGelombang } from "../../../api/yudisiumService";
 import DateFormatComponent from "../../../components/DateFormatComponent";
 import DetailInformationComponent from "../../../components/DetailInformationComponent";
 import LoadingComponent from "../../../components/LoadingComponent";
 import ModuleDataTable from "../../../js/ModuleDataTable";
-import SemproTable from "./SemproTable";
+import YudisiumTable from "./YudisiumTable";
 
-const SemproList = () => {
-  const [sempro, setSempro] = useState([]);
+const YudisiumList = () => {
+  const [yudisium, setYudisium] = useState([]);
   const [gelombang, setGelombang] = useState("Semua");
   const [listGelombang, setListGelombang] = useState();
   const [loading, setLoading] = useState(false);
@@ -24,9 +20,9 @@ const SemproList = () => {
   const loadDataMahasiswa = () => {
     setLoading(true);
     if (gelombang === "Semua") {
-      getListSeminar()
+      getListYudisium()
         .then((response) => {
-          setSempro(response.data.data.seminar);
+          setYudisium(response.data.data.yudisium);
         })
         .catch((err) => {
           console.log(err);
@@ -36,11 +32,11 @@ const SemproList = () => {
           ModuleDataTable();
         });
     } else {
-      setSempro([]);
-      getSeminarByGelombang(gelombang)
+      setYudisium([]);
+      getYudisiumByGelombang(gelombang)
         .then((response) => {
-          setSempro(response.data.data.seminar);
-          console.log(response.data.data.seminar);
+          setYudisium(response.data.data.yudisium);
+          console.log(response.data.data.yudisium[0].tanggalPelaksanaan);
         })
         .catch((err) => {
           console.log(err);
@@ -53,7 +49,7 @@ const SemproList = () => {
   };
 
   const loadDataGelombang = () => {
-    getListGelombangSeminar()
+    getListGelombangYudisium()
       .then((response) => {
         setListGelombang(response.data.data);
         // console.log(response.data.data);
@@ -78,26 +74,27 @@ const SemproList = () => {
             <DetailInformationComponent
               title={"Tanggal Pelaksanaan"}
               value={
-                <DateFormatComponent date={sempro[0]?.tanggalPelaksanaan} />
+                <DateFormatComponent date={yudisium[0]?.tanggalPelaksanaan} />
               }
             />
           </div>
           <div className="col-lg-6">
             <DetailInformationComponent
               title={"Tempat Pelaksanaan"}
-              value={sempro[0]?.tempatPelaksanaan}
+              value={yudisium[0]?.tempatPelaksanaan}
             />
           </div>
         </div>
       );
     }
   };
+
   return (
     <div className="row">
       <div className="col-12">
         <div className="card">
           <div className="card-header d-flex justify-content-between">
-            <h4>Seminar Proposal</h4>
+            <h4>Kolokium</h4>
             <div className="dropdown ">
               <button
                 className="btn btn-primary dropdown-toggle"
@@ -107,7 +104,7 @@ const SemproList = () => {
                 aria-haspopup="true"
                 aria-expanded="false"
               >
-                Gelombang Seminar
+                Gelombang Kolokium
               </button>
               <div className="dropdown-menu">
                 <button
@@ -138,7 +135,7 @@ const SemproList = () => {
           </div>
           <div className="card-body">
             {gelombangSelected()}
-            <SemproTable sempro={sempro} />
+            <YudisiumTable yudisium={yudisium} />
           </div>
         </div>
       </div>
@@ -146,4 +143,4 @@ const SemproList = () => {
   );
 };
 
-export default SemproList;
+export default YudisiumList;

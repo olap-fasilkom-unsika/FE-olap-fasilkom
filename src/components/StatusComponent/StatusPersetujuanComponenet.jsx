@@ -6,19 +6,21 @@ const StatusPersetujuanComponenet = ({ status }) => {
       container: "body",
     });
   }, []);
-  
-  const accepted = <i className="fas fa-check"></i>
-  const refused = <i className="fas fa-times"></i>
+
+  const accepted = <i className="fas fa-check"></i>;
+  const refused = <i className="fas fa-times"></i>;
 
   return (
     <>
       <div
-        className="badge badge-success"
+        className={
+          status?.id === "1" ? "badge badge-success" : "badge badge-danger"
+        }
         data-toggle="popover"
         data-trigger="hover"
         data-content={status?.name}
       >
-        {status?.id === '1' ? accepted : refused}
+        {status?.id === "1" ? accepted : refused}
       </div>
     </>
   );

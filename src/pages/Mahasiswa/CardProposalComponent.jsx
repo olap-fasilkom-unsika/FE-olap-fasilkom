@@ -49,7 +49,7 @@ const CardProposalComponent = ({ id }) => {
     return (
       <CardComponent
         title="Proposal"
-        body={<h6 class="card-title text-center">{proposal.data.message}</h6>}
+        body={<h6 className="card-title text-center">{proposal.data.message}</h6>}
       />
     );
   }
@@ -57,12 +57,12 @@ const CardProposalComponent = ({ id }) => {
   let resultSeminar;
   if (seminar?.status === 404) {
     resultSeminar = () => (
-      <h6 class="card-title text-center">{seminar.data.message}</h6>
+      <h6 className="card-title text-center">{seminar.data.message}</h6>
     );
   } else {
     resultSeminar = () => (
       <div
-        class="accordion-body collapse show"
+        className="accordion-body collapse show"
         id="seminar-proposal"
         data-parent="#accordion"
       >
@@ -104,12 +104,12 @@ const CardProposalComponent = ({ id }) => {
             title="Dosen Pembimbing"
             value={proposal.dosenPembimbing?.name}
           />
-          <h6 class="card-title">Status</h6>
+          <h6 className="card-title">Status</h6>
           <StatusPersetujuanComponenet status={proposal.statusProposal} />
           <div className="accordion mt-4">
             <div id="accordion">
               <div
-                class="accordion-header mb-3"
+                className="accordion-header mb-3"
                 role="button"
                 data-toggle="collapse"
                 data-target="#seminar-proposal"

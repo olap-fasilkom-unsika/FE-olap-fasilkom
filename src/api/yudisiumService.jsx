@@ -3,6 +3,8 @@ import http from "./httpCommon";
 const yudisium = "/yudisium";
 
 const getListYudisium = () => http.get(yudisium);
+const getListGelombangYudisium = () => http.get("gelombang-yudisium");
+const getYudisiumByGelombang = (id) => http.get(`${yudisium}/gelombang-yudisium/${id}`);
 const getYudisiumById = (id) => http.get(`${yudisium}/${id}`);
 const getYudisiumByIdMahasiswa = (id) =>
   http.get(`${yudisium}/mahasiswa/${id}`);
@@ -13,6 +15,8 @@ const deleteYudisium = (id, status) =>
 
 export {
   getListYudisium,
+  getListGelombangYudisium,
+  getYudisiumByGelombang,
   getYudisiumById,
   getYudisiumByIdMahasiswa,
   createYudisium,
