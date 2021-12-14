@@ -6,6 +6,9 @@ const StatusPersetujuanComponenet = ({ status }) => {
       container: "body",
     });
   }, []);
+  
+  const accepted = <i className="fas fa-check"></i>
+  const refused = <i className="fas fa-times"></i>
 
   return (
     <>
@@ -15,7 +18,7 @@ const StatusPersetujuanComponenet = ({ status }) => {
         data-trigger="hover"
         data-content={status?.name}
       >
-        {status?.id === '1' ? 'Disetujui' : "Tidak Disetujui"}
+        {status?.id === '1' ? accepted : refused}
       </div>
     </>
   );

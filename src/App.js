@@ -4,12 +4,12 @@ import { Header, Footer, Sidebar } from "./components/admin";
 import { useLocation } from "react-router-dom";
 
 import { Dashboard } from "./pages/Dashboard/Dashboard";
-import SeminarProposal from "./pages/JadwalKegiatan/SeminarProposal";
 import ScrollToTop from "./ScrollToTop";
 import DataMahasiswa from "./pages/Mahasiswa/DataMahasiswa";
 import DetailMahasiswa from "./pages/Mahasiswa/DetailMahasiswa";
 import DataDosen from "./pages/Dosen/DataDosen";
 import DetailDosen from "./pages/Dosen/DetailDosen";
+import DataSempro from "./pages/TugasAkhir/SeminarProposal/DataSempro";
 
 // const Posts = React.lazy(() => import('./pages/Pages/Features/Posts'));
 
@@ -44,9 +44,9 @@ function App() {
             <Route path="/" exact component={Dashboard} />
             <Route path="/mahasiswa" exact component={DataMahasiswa} />
             <Route path="/mahasiswa/detail" component={DetailMahasiswa} />
-            <Route path="/seminar-proposal" exact component={SeminarProposal} />
             <Route path="/dosen" exact component={DataDosen} />
             <Route path="/dosen/detail" exact component={DetailDosen} />
+            <Route path="/seminar-proposal" exact component={DataSempro} />
           </Switch>
         </React.Suspense>
         <Footer />

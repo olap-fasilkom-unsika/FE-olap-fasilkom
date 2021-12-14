@@ -40,8 +40,8 @@ export const Data = {
     },
     {
       dropdown: true,
-      name: "Jadwal Kegiatan",
-      icon: "fas fa-table",
+      name: "Tugas Akhir",
+      icon: "fas fa-graduation-cap",
       children: [
         {
           name: "Seminar Proposal",

@@ -1,30 +1,30 @@
 import React, { useEffect, useState } from "react";
 import {
-  getListMahasiswa,
-  getListStatusMahasiswa,
-  getMahasiswaByStatus,
-} from "../../api/mahasiswaService";
-import LoadingComponent from "../../components/LoadingComponent";
-import ModuleDataTable from "../../js/ModuleDataTable";
-import MahasiswaTable from "./MahasiswaTable";
+  getListGelombangSeminar,
+  getListSeminar,
+  getSeminarByGelombang,
+} from "../../../api/semproService";
+import LoadingComponent from "../../../components/LoadingComponent";
+import ModuleDataTable from "../../../js/ModuleDataTable";
+import SemproTable from "./SemproTable";
 
-const MahasiswaList = () => {
-  const [mahasiswa, setMahasiswa] = useState([]);
-  const [status, setStatus] = useState("Semua");
-  const [listStatus, setListStatus] = useState();
+const SemproList = () => {
+  const [sempro, setSempro] = useState([]);
+  const [gelombang, setGelombang] = useState("Semua");
+  const [listGelombang, setListGelombang] = useState();
   const [loading, setLoading] = useState(false);
 
   useEffect(() => {
-    loadDataStatus();
+    loadDataGelombang();
     loadDataMahasiswa();
-  }, [status]);
+  }, [gelombang]);
 
   const loadDataMahasiswa = () => {
     setLoading(true);
-    if (status === "Semua") {
-      getListMahasiswa()
+    if (gelombang === "Semua") {
+      getListSeminar()
         .then((response) => {
-          setMahasiswa(response.data.data.mahasiswa);
+          setSempro(response.data.data.seminar);
         })
         .catch((err) => {
           console.log(err);
@@ -34,11 +34,11 @@ const MahasiswaList = () => {
           ModuleDataTable();
         });
     } else {
-      setMahasiswa([]);
-      getMahasiswaByStatus(status)
+      setSempro([]);
+      getSeminarByGelombang(gelombang)
         .then((response) => {
-          setMahasiswa(response.data.data.mahasiswa);
-          console.log(response.data.data.mahasiswa);
+          setSempro(response.data.data.seminar);
+          console.log(response.data.data.seminar);
         })
         .catch((err) => {
           console.log(err);
@@ -50,10 +50,10 @@ const MahasiswaList = () => {
     }
   };
 
-  const loadDataStatus = () => {
-    getListStatusMahasiswa()
+  const loadDataGelombang = () => {
+    getListGelombangSeminar()
       .then((response) => {
-        setListStatus(response.data.data);
+        setListGelombang(response.data.data);
         // console.log(response.data.data);
       })
       .catch((err) => {
@@ -72,7 +72,7 @@ const MahasiswaList = () => {
       <div className="col-12">
         <div className="card">
           <div className="card-header d-flex justify-content-between">
-            <h4>Tabel Data Mahasiswa</h4>
+            <h4>Seminar Proposal</h4>
             <div className="dropdown ">
               <button
                 className="btn btn-primary dropdown-toggle"
@@ -82,28 +82,28 @@ const MahasiswaList = () => {
                 aria-haspopup="true"
                 aria-expanded="false"
               >
-                Status Mahasiswa
+                Gelombang Seminar
               </button>
               <div className="dropdown-menu">
                 <button
                   className={
-                    status === "Semua"
+                    gelombang === "Semua"
                       ? "dropdown-item active"
                       : "dropdown-item"
                   }
-                  onClick={() => setStatus("Semua")}
+                  onClick={() => setGelombang("Semua")}
                 >
                   Semua
                 </button>
-                {listStatus?.map((sts) => (
+                {listGelombang?.map((sts) => (
                   <button
                     key={sts.id}
                     className={
-                      status === sts.id
+                      gelombang === sts.id
                         ? "dropdown-item active"
                         : "dropdown-item"
                     }
-                    onClick={() => setStatus(sts.id)}
+                    onClick={() => setGelombang(sts.id)}
                   >
                     {sts.id}
                   </button>
@@ -112,7 +112,7 @@ const MahasiswaList = () => {
             </div>
           </div>
           <div className="card-body">
-            <MahasiswaTable mahasiswa={mahasiswa} />
+            <SemproTable sempro={sempro} />
           </div>
         </div>
       </div>
@@ -120,4 +120,4 @@ const MahasiswaList = () => {
   );
 };
 
-export default MahasiswaList;
+export default SemproList;

@@ -14,6 +14,7 @@ const DetailMahasiswa = (props) => {
   }
   return (
     <MahasiswaComponent
+      page={"Detail Mahasiswa"}
       body={
         <>
           <h2 className="section-title">Detail Mahasiswa</h2>

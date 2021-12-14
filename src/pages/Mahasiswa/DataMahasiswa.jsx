@@ -6,6 +6,7 @@ export class DataMahasiswa extends Component {
   render() {
     return (
       <MahasiswaComponent
+      page={'Data Mahasiswa'}
         body={
           <>
             <h2 className="section-title">Data Mahasiswa</h2>
