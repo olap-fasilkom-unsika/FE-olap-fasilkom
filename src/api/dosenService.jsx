@@ -2,7 +2,7 @@ import http from "./httpCommon";
 
 const baseURL = "/dosen";
 
-const getListDosen = () => http.get(baseURL);
+const getListDosen = () => http.get(`${baseURL}?pageSize=1000`);
 const getDosenById = (id) => http.get(`${baseURL}/${id}`);
 const getMahasiswaByIdDosen = (id) => http.get(`${baseURL}/mahasiswa/${id}`);
 const getDosenBebanSempro = (id) => http.get(`${baseURL}/beban-sempro/${id}`);

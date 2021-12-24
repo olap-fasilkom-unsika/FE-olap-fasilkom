@@ -3,7 +3,7 @@ import http from "./httpCommon";
 const baseURL = "/mahasiswa";
 const statusMahasiswa = "/status-mahasiswa";
 
-const getListMahasiswa = () => http.get(`${baseURL}?pageSize=50`);
+const getListMahasiswa = () => http.get(`${baseURL}?pageSize=1000`);
 const getListStatusMahasiswa = () => http.get(statusMahasiswa);
 const getMahasiswaById = (id) => http.get(`${baseURL}/${id}`);
 const getMahasiswaByStatus = (status) =>

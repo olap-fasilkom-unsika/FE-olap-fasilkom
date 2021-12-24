@@ -13,7 +13,7 @@ const updateProposal = (id, payload) => http.put(`${proposal}/${id}`, payload);
 const deleteProposal = (id, status) =>
   http.delete(`${proposal}/${id}/${status}`);
 
-const getListSeminar = () => http.get(seminar);
+const getListSeminar = () => http.get(`${seminar}?pageSize=1000`);
 const getSeminarByIdMahasiswa = (id) => http.get(`${seminar}/mahasiswa/${id}`);
 const getSeminarByGelombang = (id) =>
   http.get(`${seminar}/gelombang-seminar/${id}`);

@@ -9,7 +9,7 @@ const getSkripsiByIdMahasiswa = (id) => http.get(`${skripsi}/mahasiswa/${id}`);
 const createSkripsi = (payload) => http.post(skripsi, payload);
 const updateSkripsi = (id, payload) => http.put(`${skripsi}/${id}`, payload);
 const deleteSkripsi = (id, status) => http.delete(`${skripsi}/${id}/${status}`);
-const getListKolokium = () => http.get(kolokium);
+const getListKolokium = () => http.get(`${kolokium}?pageSize=1000`);
 const getKolokiumByGelombang = (id) =>
   http.get(`${kolokium}/gelombang-kolokium/${id}`);
 const getKolokiumByIdMahasiswa = (id) =>

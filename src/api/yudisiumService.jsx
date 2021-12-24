@@ -2,9 +2,10 @@ import http from "./httpCommon";
 
 const yudisium = "/yudisium";
 
-const getListYudisium = () => http.get(yudisium);
+const getListYudisium = () => http.get(`${yudisium}?pageSize=1000`);
 const getListGelombangYudisium = () => http.get("gelombang-yudisium");
-const getYudisiumByGelombang = (id) => http.get(`${yudisium}/gelombang-yudisium/${id}`);
+const getYudisiumByGelombang = (id) =>
+  http.get(`${yudisium}/gelombang-yudisium/${id}`);
 const getYudisiumById = (id) => http.get(`${yudisium}/${id}`);
 const getYudisiumByIdMahasiswa = (id) =>
   http.get(`${yudisium}/mahasiswa/${id}`);
