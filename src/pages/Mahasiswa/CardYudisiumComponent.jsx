@@ -6,6 +6,7 @@ import CardComponent from "../../components/CardComponent/CardComponent";
 import DetailInformationComponent from "../../components/DetailInformationComponent";
 import LoadingComponent from "../../components/LoadingComponent";
 import StatusPersetujuanComponenet from "../../components/StatusComponent/StatusPersetujuanComponenet";
+import DateFormatter from "../../utility/DateFormatter";
 
 const CardYudisiumComponent = ({ id }) => {
   const [yudisium, setYudisium] = useState([]);
@@ -37,7 +38,9 @@ const CardYudisiumComponent = ({ id }) => {
     return (
       <CardComponent
         title="Yudisium"
-        body={<h6 className="card-title text-center">{yudisium.data.message}</h6>}
+        body={
+          <h6 className="card-title text-center">{yudisium.data.message}</h6>
+        }
       />
     );
   }
@@ -51,7 +54,7 @@ const CardYudisiumComponent = ({ id }) => {
             <div className="col-lg-6">
               <DetailInformationComponent
                 title="Tanggal Pelaksanaan"
-                value={yudisium.tanggalPelaksanaan}
+                value={<DateFormatter date={yudisium.tanggalPelaksanaan} />}
               />
               <DetailInformationComponent
                 title="Tempat Pelaksanaan"

@@ -6,6 +6,7 @@ import {
 import LoadingComponent from "../../components/LoadingComponent";
 import DetailInformationComponent from "../../components/DetailInformationComponent";
 import CardComponent from "../../components/CardComponent/CardComponent";
+import DateFormatter from "../../utility/DateFormatter";
 
 const CardSkripsiComponent = ({ id }) => {
   const [skripsi, setSkripsi] = useState([]);
@@ -68,7 +69,7 @@ const CardSkripsiComponent = ({ id }) => {
       >
         <DetailInformationComponent
           title="Tanggal Pelaksanaan"
-          value={kolokium.tanggalPelaksanaan}
+          value={<DateFormatter date={kolokium.tanggalPelaksanaan} />}
         />
 
         <DetailInformationComponent
@@ -104,7 +105,7 @@ const CardSkripsiComponent = ({ id }) => {
           />
           <DetailInformationComponent
             title="Request Date"
-            value={skripsi.requestDate}
+            value={<DateFormatter date={skripsi.requestDate} />}
           />
           <DetailInformationComponent
             title="Dosen Pembimbing 1"

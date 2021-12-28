@@ -5,6 +5,7 @@ import DetailInformationComponent from "../../components/DetailInformationCompon
 import LoadingComponent from "../../components/LoadingComponent";
 import StatusPersetujuanComponenet from "../../components/StatusComponent/StatusPersetujuanComponenet";
 import { getProposalByIdMahasiswa, getSeminarByIdMahasiswa } from "../../api/semproService";
+import DateFormatter from "../../utility/DateFormatter";
 
 
 const CardProposalComponent = ({ id }) => {
@@ -68,7 +69,7 @@ const CardProposalComponent = ({ id }) => {
       >
         <DetailInformationComponent
           title="Tanggal Pelaksanaan"
-          value={seminar.tanggalPelaksanaan}
+          value={<DateFormatter date={seminar.tanggalPelaksanaan} />}
         />
 
         <DetailInformationComponent
@@ -98,7 +99,7 @@ const CardProposalComponent = ({ id }) => {
           />
           <DetailInformationComponent
             title="Request Date"
-            value={proposal.requestDate}
+            value={<DateFormatter date={proposal.requestDate} />}
           />
           <DetailInformationComponent
             title="Dosen Pembimbing"
